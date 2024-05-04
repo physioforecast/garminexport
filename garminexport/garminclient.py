@@ -16,7 +16,7 @@ import requests
 import sys
 import zipfile
 
-from garminexport.retryer import Retryer, ExponentialBackoffDelayStrategy, MaxRetriesStopStrategy
+# from garminexport.retryer import Retryer, ExponentialBackoffDelayStrategy, MaxRetriesStopStrategy
 
 
 log = logging.getLogger(__name__)
@@ -66,7 +66,7 @@ class GarminClient(object):
 
     """
 
-    def __init__(self, username, password):
+    def __init__(self):#, username, password):
         """Initialize a :class:`GarminClient` instance.
 
         :param username: Garmin Connect user name or email address.
@@ -74,10 +74,12 @@ class GarminClient(object):
         :param password: Garmin Connect account password.
         :type password: str
         """
-        self.username = username
-        self.password = password
+        self.username = input()#username
+        self.password = input()#password
 
         self.session = None
+        
+        # self.bunny = True
 
 
     def __enter__(self):
@@ -240,6 +242,7 @@ class GarminClient(object):
         :returns: The full list of activity identifiers (along with their starting timestamps).
         :rtype: tuples of (int, datetime)
         """
+        
         ids = []
         batch_size = 100
         # fetch in batches since the API doesn't allow more than a certain
@@ -268,8 +271,10 @@ class GarminClient(object):
         :rtype: tuples of (int, datetime)
         """
         log.debug("fetching activities %d through %d ...", start_index, start_index + max_limit - 1)
+        
         response = self.session.get(
-            "https://connect.garmin.com/activitylist-service/activities/search/activities",
+            "https://connect.garmin.com/wellness-service/wellness/",
+            # "https://connect.garmin.com/activitylist-service/activities/search/activities",
             params={"start": start_index, "limit": max_limit})
         if response.status_code != 200:
             raise Exception(
