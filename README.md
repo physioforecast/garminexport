@@ -2,7 +2,7 @@
 
 Adapted code from https://github.com/petergardfjall/garminexport
 
-Barebones Python code to download Body Score from Garmin. Assumes you have an account with Garmin Connect. 
+Barebones Python code to download **Body Score from Garmin**. Assumes you have an account with Garmin Connect. 
 
 Executing this will ask you to enter your Garmin username/email and password. However, it is not stored after execution and acts like any browser (e.g. Chrome) using Garmin Connect, where you'd do the same thing. 
 
