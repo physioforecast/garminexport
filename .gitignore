@@ -15,5 +15,5 @@ __pycache__/
 
 .DS_Store
 
-/notebooks
-downloads/*
+notebooks/
+./downloads/*
