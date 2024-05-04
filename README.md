@@ -12,3 +12,7 @@ Make sure Python is installed and requirements (see file).
 
 Then either git clone repo or download zip, and run grab_bodyscore.py
 
+# Execution
+
+python grab_bodyscore.py <Garmin username> <Garmin password> <start-date YYYY-MM-DD> <end-date YYYY-MM-DD> <Folder path for downloads>
+
