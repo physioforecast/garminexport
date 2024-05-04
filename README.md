@@ -17,6 +17,8 @@ Make sure Python is installed and requirements (see file).
 
 Then download zipped code (or clone), and run grab_bodyscore.py . 
 
+![Untitled presentation](https://github.com/physioforecast/garminexport/assets/6562289/202bb9e1-830f-43c7-a55a-2626d46b8296)
+
 # Execution
 
 python grab_bodyscore.py \<Garmin username\> \<Garmin password\> \<start-date YYYY-MM-DD\> \<end-date YYYY-MM-DD\> \<Folder path for downloads\>
