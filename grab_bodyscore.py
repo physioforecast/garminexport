@@ -20,8 +20,8 @@ def simpleaxis(ax):
 
 
 # Check if the required arguments are provided
-if len(sys.argv) != 5:
-    print("Usage: python grab_bodyscore.py <username> <password> <start_date(YYYY-MM-DD)> <end_date(YYYY-MM-DD)>")
+if len(sys.argv) != 6:
+    print("Usage: python grab_bodyscore.py <username> <password> <start_date(YYYY-MM-DD)> <end_date(YYYY-MM-DD)> <download path>")
     sys.exit(1)
 
 # Parse the command line arguments
@@ -30,6 +30,8 @@ d1 = sys.argv[4]
 
 username = sys.argv[1]
 password = sys.argv[2]
+
+download_path = sys.argv[5]
 
 client = GarminClient(username,password)
 
@@ -73,5 +75,5 @@ plt.gca().set_xticklabels(days,fontsize=10,rotation=90)
 simpleaxis(plt.gca())
 plt.gca().set_facecolor('lightgray')
 plt.subplots_adjust(bottom=0.2)
-plt.savefig(f"./downloads/{username}_{d0}_{d1}.jpg")
-DF[['Date-time','Body Score']].to_csv(f"./downloads/{username}_{d0}_{d1}.csv",index=True)
+plt.savefig(f"{download_path}/{username}_{d0}_{d1}.jpg")
+DF[['Date-time','Body Score']].to_csv(f"{download_path}/{username}_{d0}_{d1}.csv",index=True)
