@@ -16,6 +16,8 @@ import requests
 import sys
 import zipfile
 
+import getpass
+
 # from garminexport.retryer import Retryer, ExponentialBackoffDelayStrategy, MaxRetriesStopStrategy
 
 
@@ -74,8 +76,8 @@ class GarminClient(object):
         :param password: Garmin Connect account password.
         :type password: str
         """
-        self.username = input()#username
-        self.password = input()#password
+        self.username = input('Enter Garmin username/email:')#username
+        self.password = getpass.getpass("Enter your password: ")#input('Enter password:')#password
 
         self.session = None
         
