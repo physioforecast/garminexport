@@ -68,7 +68,7 @@ class GarminClient(object):
 
     """
 
-    def __init__(self):#, username, password):
+    def __init__(self, username, password):
         """Initialize a :class:`GarminClient` instance.
 
         :param username: Garmin Connect user name or email address.
@@ -76,8 +76,8 @@ class GarminClient(object):
         :param password: Garmin Connect account password.
         :type password: str
         """
-        self.username = input('Enter Garmin username/email:')#username
-        self.password = getpass.getpass("Enter your password: ")#input('Enter password:')#password
+        self.username = username# input('Enter Garmin username/email:')#username
+        self.password = password#getpass.getpass("Enter your password: ")#input('Enter password:')#password
 
         self.session = None
         
