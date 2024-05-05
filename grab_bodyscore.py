@@ -99,6 +99,6 @@ plt.gca().set_facecolor((0.91,0.91,0.91))
 plt.ylim([0,100])
 plt.grid(True,color='white')
 plt.subplots_adjust(bottom=0.5)
-input()
+
 plt.savefig(f"{download_path}/{username}_{d0}_{d1}.jpg",dpi=300)
 DF[['Date-time','Body Score']].to_csv(f"{download_path}/{username}_{d0}_{d1}.csv",index=True)
