@@ -66,14 +66,39 @@ if not DF_:
     sys.exit(1)
 
 DF = pd.concat(DF_)
-
-plt.plot(DF['Date-time'],DF['Body Score'],color=(1.0, 0.4, 0.0),alpha=0.75,lw=4)
-plt.xlabel('Date-time')
+plt.figure(figsize=(10,5))
+plt.plot(DF['Date-time'],DF['Body Score'],color=(1.0, 0.1, 0.0),alpha=0.75,lw=2)
 plt.ylabel('Body Score')
-plt.gca().set_xticks(days)
-plt.gca().set_xticklabels(days,fontsize=10,rotation=90)
+
+
+d1 = pd.to_datetime(d1) + pd.DateOffset(days=1)
+
+# Create a date range with 4-hour frequency for time ticks
+x_time = pd.date_range(start=d0, end=d1, freq='4h')
+
+# Create a date range with 1-day frequency for date ticks at 24h
+x_date = pd.date_range(start=d0, end=d1, freq='1d')
+
+# Plotting
+ax = plt.gca()
+# Set the primary x-axis (time)
+ax.set_xticks(x_time)
+ax.set_xticklabels([date.strftime('%H:%M') for date in x_time], fontsize=10, rotation=90)
+
+for day in x_date:
+    ax.axvline(day,color='black',linestyle='--')
+
+# Add a secondary x-axis for dates
+h = ax.secondary_xaxis('bottom')
+h.set_xticks(x_date)
+h.set_xticklabels([date.strftime('%Y-%m-%d') for date in x_date],fontsize=10, rotation=0)
+h.spines['bottom'].set_position(('outward', 40))  # Adjust the position as needed
+
 simpleaxis(plt.gca())
-plt.gca().set_facecolor('lightgray')
-plt.subplots_adjust(bottom=0.2)
-plt.savefig(f"{download_path}/{username}_{d0}_{d1}.jpg")
+plt.gca().set_facecolor((0.91,0.91,0.91))
+plt.ylim([0,100])
+plt.grid(True,color='white')
+plt.subplots_adjust(bottom=0.5)
+input()
+plt.savefig(f"{download_path}/{username}_{d0}_{d1}.jpg",dpi=300)
 DF[['Date-time','Body Score']].to_csv(f"{download_path}/{username}_{d0}_{d1}.csv",index=True)
