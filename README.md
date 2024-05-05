@@ -7,7 +7,8 @@ Barebones Python code to **download Body Score from Garmin**. Assumes you have a
 Executing this will ask you to enter your Garmin username/email and password. However, it is not stored after execution and acts like any browser (e.g. Chrome) using Garmin Connect, where you'd do the same thing. 
 
 
-![fig](https://github.com/physioforecast/garminexport/assets/6562289/ad6d39e4-cf1e-42f5-a027-9fcaea25e13d)
+![fig](ht![fig](https://github.com/physioforecast/garminexport/assets/6562289/78f093a4-1ed2-4852-86a6-22d4e9825737)
+
 
 
 
