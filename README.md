@@ -6,7 +6,9 @@ Barebones Python code to **download Body Score from Garmin**. Assumes you have a
 
 Executing this will ask you to enter your Garmin username/email and password. However, these are not stored after execution and acts like any browser (e.g. Chrome) using Garmin Connect.
 
-This does not work when Garmin turns on captchas. Instead look at garth for solutions. You can also manually copy and paste data using F12 when signed into Garmin Connect. 
+This does not work when Garmin turns on captchas. This will happen if you ping their server too many times. Resets after awhile (maybe 24 hours?). 
+Instead look at garth for solutions. 
+You can also manually copy and paste data using F12 when signed into Garmin Connect. 
 
 
 
